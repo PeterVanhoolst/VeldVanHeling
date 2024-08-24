@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klantenervaringen - Deel jouw verhaal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #e3e4e8;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .experience-form {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .experience-form textarea {
+            width: 60%;
+            height: 100px;
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .experience-form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .experience-form button:hover {
+            background-color: #45a049;
+        }
+
+        #post-it-wall {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .post-it {
+            background-color: #ffeb3b;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            padding: 15px;
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 1em;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            word-wrap: break-word;
+            transform: rotate(-3deg);
+            position: relative;
+        }
+
+        .post-it:nth-child(even) {
+            transform: rotate(3deg);
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .experience-form textarea {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .experience-form textarea {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Deel je ervaring</h1>
+        <p>Schrijf hier jouw ervaring en deel deze met anderen</p>
+    </header>
+
+    <section class="experience-form">
+        <textarea id="experienceInput" placeholder="Schrijf hier je ervaring..."></textarea><br>
+        <button onclick="addPostIt()">Plaats je ervaring</button>
+    </section>
+
+    <section id="post-it-wall">
+        <!-- Hier komen de post-its te staan -->
+    </section>
+
+    <script>
+        function addPostIt() {
+            // Haal de tekst uit de textarea
+            var experienceText = document.getElementById('experienceInput').value.trim();
+
+            // Validatie: Controleer of de tekst niet leeg is
+            if (experienceText === "") {
+                alert("Je kunt geen lege ervaring plaatsen.");
+                return;
+            }
+
+            // Maak een nieuwe div voor de post-it
+            var postIt = document.createElement('div');
+            postIt.className = 'post-it';
+
+            // Voeg een verwijderknop toe aan de post-it
+            var deleteBtn = document.createElement('button');
+            deleteBtn.className = 'delete-btn';
+            deleteBtn.textContent = 'X';
+            deleteBtn.onclick = function() {
+                postIt.remove(); // Verwijder de post-it wanneer op de knop wordt gedrukt
+            };
+
+            // Voeg de tekst toe aan de post-it
+            postIt.textContent = experienceText;
+
+            // Voeg de verwijderknop toe aan de post-it
+            postIt.appendChild(deleteBtn);
+
+            // Voeg de post-it toe aan de muur (post-it wall)
+            document.getElementById('post-it-wall').appendChild(postIt);
+
+            // Maak het invoerveld leeg
+            document.getElementById('experienceInput').value = '';
+        }
+    </script>
+</body>
+</html>
