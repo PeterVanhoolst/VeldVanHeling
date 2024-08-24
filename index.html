@@ -11,6 +11,7 @@
             color: #333;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
         header {
             background-color: #e3e4e8;
@@ -29,11 +30,23 @@
             margin: 0 15px;
             text-decoration: none;
             color: #333;
+            font-size: 1.1rem;
         }
         section {
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
+        }
+        section h2 {
+            font-size: 1.8em;
+        }
+        section h3 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
         }
         footer {
             background-color: #e3e4e8;
@@ -42,6 +55,55 @@
             position: relative;
             bottom: 0;
             width: 100%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Media Queries voor responsiviteit */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            nav a {
+                font-size: 1rem;
+            }
+            section {
+                padding: 15px;
+            }
+            section h2 {
+                font-size: 1.5em;
+            }
+            section h3 {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 1.2em;
+            }
+            nav {
+                margin: 10px 0;
+            }
+            nav a {
+                display: block;
+                margin: 10px 0;
+                font-size: 1rem;
+            }
+            section h2 {
+                font-size: 1.3em;
+            }
+            section h3 {
+                font-size: 1.2em;
+            }
+            section p {
+                font-size: 0.95em;
+            }
         }
     </style>
 </head>
@@ -61,8 +123,8 @@
     <section>
         <h2>Warmte en ondersteuning in moeilijke tijden</h2>
         <p>In de serene omgeving van Veld van Heling rouwbegeleiding heten we je welkom. Hier streven we ernaar een rustgevende plek te bieden waar verdriet een pad naar heling vindt.
-	   Samen verkennen we de bloemrijke velden van herinneringen, omarmen we de schaduwen van verlies en werken we samen aan het laten groeten van nieuwe hoop.
-	   Laat Veld van Heling je begeleiden op deze tedere reis door rouw, waar elke stap een bloem van genezing kan planten.</p>
+           Samen verkennen we de bloemrijke velden van herinneringen, omarmen we de schaduwen van verlies en werken we samen aan het laten groeten van nieuwe hoop.
+           Laat Veld van Heling je begeleiden op deze tedere reis door rouw, waar elke stap een bloem van genezing kan planten.</p>
         <h3>Diensten</h3>
         <ul>
             <li>Individuele rouwbegeleiding</li>
