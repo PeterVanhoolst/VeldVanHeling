@@ -4,66 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afsprakenkalender</title>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f0f0f0;
         }
-        .container {
-            max-width: 600px;
+        #calendar {
+            max-width: 900px;
             margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin-top: 10px;
-        }
-        input[type="date"],
-        input[type="time"] {
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        input[type="submit"] {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Plan een Afspraak</h1>
-    <form action="afspraak_verwerken.php" method="POST">
-        <label for="datum">Kies een datum:</label>
-        <input type="date" id="datum" name="datum" required>
+    <h1>Afsprakenkalender</h1>
+    <div id="calendar"></div>
 
-        <label for="tijd">Kies een tijd:</label>
-        <input type="time" id="tijd" name="tijd" required>
-
-        <input type="submit" value="Plan Afspraak">
-    </form>
-</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                selectable: true,
+                dateClick: function(info) {
+                    alert('Geselecteerde datum: ' + info.dateStr);
+                    // Hier kun je een modal of formulier openen om een afspraak te plannen
+                }
+            });
+            calendar.render();
+        });
+    </script>
 
 </body>
 </html>
+
